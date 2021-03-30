@@ -1,0 +1,108 @@
+//estilos globais para a aplicação
+
+:root {
+  --white: #ffffff;
+  --darkest-white: #ebeaed;
+  --darker-white: #F5F4F6;
+
+
+  --blue: #365df0;
+  --dark-blue: #2f55cc;
+  --darker-blue:#244AA8;
+
+  --ink: #170c3a;
+  --light-ink: #8f8a9b;
+
+  --red:#F95E5A;
+  --dark-red:#CC4C4C;
+
+  --green:#0DCB7D;
+  --dark-green:#10B26C;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  //configurações padrão
+}
+
+html {
+  /* nesse projeto trabalharei com unidade de medidas rem pois 1 rem = tam. da fonte
+  logo para uma aplicação responsiva quando se diminui o tamanho da tela diminuiremos as fontes e os elemntos
+  que são definidos com rem */
+  font-size: 16px;
+
+  @media (max-width: 1080px) {
+    font-size: 93.75%;
+  }
+  @media (max-width: 720px) {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  background: var(--darker-white);
+  color:var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+button {
+  cursor: pointer;
+}
+[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+body,
+button,
+input,
+textarea {
+  font: 400 1rem "Source Sans Pro", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: 600;
+}
+
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.react-modal-overlay{
+
+  background:rgba(0,0,0, 0.5);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+.react-modal-content{
+  width:100%;
+  max-width:576px; 
+
+  background:var(--white);
+  box-shadow: 0px 20px 25px #0000001A;
+
+
+  padding:  1rem;
+  position: relative;
+
+  border-radius:0.25rem;
+}
