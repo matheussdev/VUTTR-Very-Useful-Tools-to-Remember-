@@ -29,7 +29,7 @@ Toda a aplicação foi feita com typescript seguindo o wireframe e style guide f
 - **useTools**
     O hook useTols utiliza a context api do react para fazer todas as requisições necessárias a api e distribuir a resposta por todos os outros componentes.
 - **Header**
-    O componente Header renderiza o caberçalho da aplicação com titulo e subtítulo.
+    O componente Header renderiza o caberçalho da aplicação com título e subtítulo.
 - **Controllers**
     O component Controlles é responsável pelos input de busca, checkbox de tags e botão de nova tag.
 - **ToolsList**
@@ -66,7 +66,7 @@ Ao final do projeto foi criado um arquivo dockerfile para criação de imagem e 
 
 ## Pré-requisitos
 ```bash
-#inicialize a api do progeto acesse:
+#inicialize a api do projeto acesse:
 https://gitlab.com/bossabox/challenge-fake-api/tree/master
 ```
 
@@ -108,7 +108,7 @@ $ npm run dev or yarn dev
 
 ## Tecnologia utilizadas
 
-The following tools were used in the construction of the project:
+As seguintes tecnologias foram utilizadas na construção do projeto:
 
 -   **[TypeScript](https://www.typescriptlang.org/)**
 -   **[ReactJs](https://reactjs.org)**
