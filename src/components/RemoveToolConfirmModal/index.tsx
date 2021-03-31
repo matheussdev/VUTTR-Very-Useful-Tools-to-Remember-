@@ -1,10 +1,9 @@
-import { FormEvent, useState } from "react";
+import { useTools } from "../../hooks/useTools";
 import Modal from "react-modal";
 
 import { GoX } from "react-icons/go";
 
 import style from "./style.module.scss";
-import { useTools } from "../../hooks/useTools";
 
 interface RemoveToolConfirmModalProps {
   isOpen: boolean;

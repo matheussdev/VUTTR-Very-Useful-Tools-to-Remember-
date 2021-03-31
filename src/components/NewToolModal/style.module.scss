@@ -119,7 +119,8 @@
 
   .suggestionsClass{
     background: var(--white);
-    width: 100%;
+    width: 300px;
+    position: absolute;
     ul{
       margin-top: 0.25rem;
       li{
@@ -131,8 +132,4 @@
   .activeSuggestionClass{
     background: var(--darkest-white);
   }
-
-  // selected: style,
-  // suggestions: style.suggestionsClass,
-  // activeSuggestion: style.activeSuggestionClass,
 }

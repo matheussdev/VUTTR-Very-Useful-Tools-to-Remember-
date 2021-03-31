@@ -5,10 +5,8 @@ import "../styles/global.scss";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <TooslProvider>
-      <div className="container">
-        <Header />
-        <Component {...pageProps} />
-      </div>
+      <Header />
+      <Component {...pageProps} />
     </TooslProvider>
   );
 }

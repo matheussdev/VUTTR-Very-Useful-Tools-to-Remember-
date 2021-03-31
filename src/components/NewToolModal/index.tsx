@@ -1,12 +1,12 @@
-import { FormEvent, useState } from "react";
-import Modal from "react-modal";
+import { FormEvent, useEffect, useState } from "react";
+import { useTools } from "../../hooks/useTools";
 
 import { FaPlus } from "react-icons/fa";
 
-import style from "./style.module.scss";
-import { useTools } from "../../hooks/useTools";
-
+import Modal from "react-modal";
 import { WithContext as ReactTags } from "react-tag-input";
+
+import style from "./style.module.scss";
 
 const KeyCodes = {
   comma: 188,
@@ -37,16 +37,11 @@ export function NewToolModal({ isOpen, onRequestClose }: NewToolModalProps) {
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState<tag[]>([]);
-  const [suggestions, setsuggestions] = useState<
-    { id: string; text: string }[]
-  >([
-    { id: "node", text: "node" },
-    { id: "api", text: "api" },
-  ]);
+  const [suggestions, setsuggestions] = useState<tag[]>([]);
 
-  const { addNewTool } = useTools();
+  const { addNewTool, tools } = useTools();
 
-  function handleDeleteTag(i) {
+  function handleDeleteTag(i: number) {
     setTags(tags.filter((tag, index) => index !== i));
   }
   function handleAdditionTag(tag: tag) {
@@ -115,7 +110,7 @@ export function NewToolModal({ isOpen, onRequestClose }: NewToolModalProps) {
             minQueryLength={1}
             allowDragDrop={false}
             inputFieldPosition="inline"
-            allowDeleteFromEmptyInput={ false /*tags.length > 0*/}
+            allowDeleteFromEmptyInput={false /*tags.length > 0*/}
             classNames={{
               tags: style.tagsClass,
               tagInput: style.tagInputClass,

@@ -30,7 +30,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className="container">
       <Head>
         <title>VUTTR | Very Userful Tools Remember</title>
       </Head>
@@ -49,6 +49,6 @@ export default function Home() {
         toolName={toolRemoveName}
         toolId={toolRemoveId}
       />
-    </>
+    </div>
   );
 }

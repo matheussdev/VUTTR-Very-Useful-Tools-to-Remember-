@@ -1,9 +1,10 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 
 import { FiSearch } from "react-icons/fi";
 import { GoPlus } from "react-icons/go";
 
 import Switch from "react-switch";
+
 import { useTools } from "../../hooks/useTools";
 
 import style from "./style.module.scss";
@@ -33,6 +34,7 @@ export function Controllers({ onOpenNewToolModal }: ControllersProps) {
     event.preventDefault();
     searchTools(searchUrl + search);
   }
+  
   return (
     <div className={style.container}>
       <div>

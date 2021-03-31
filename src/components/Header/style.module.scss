@@ -1,7 +1,10 @@
-.container{
-    margin: 3rem 0 2rem;
+.container {
+  margin: 3rem auto 2rem;
 
-    h1{
-        margin-bottom: 0.5rem;
-    }
+  max-width: 780px;
+  padding: 0 1rem;
+
+  h1 {
+    margin-bottom: 0.5rem;
+  }
 }
