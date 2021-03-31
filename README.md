@@ -1,34 +1,140 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# VUTTR (Very Useful Tools to Remember)
 
-First, run the development server:
+***
+## Sobre
 
+Este projeto é um teste para o seletivo do banco de talentos da creative pack.
+
+O projeto consiste em criar o front-end para a aplicação VUTTR (Very Useful Tools to Remember), um simples repositório para gerenciar ferramentas com respectivos nomes, links, descrições e tags.
+
+Pode até parecer um projeto simples porém não deixa de ser uma grande oportunidade de aprendizagem, pois ele foi desenvolvido com uma das mais atuais tecnologias do desenvolvimento web, [ReactJs](http://reactjs.org).
+
+#### construção do projeto
+
+Desenvolvi a aplicação com um dos mais atuais frameworks do React, o [NextJs](https://nextjs.org/) pois com ele posso executar uma aplicação SSR (Server-side Rendering) e renderizar os componentes no lado do servidor melhorando assim sua indexação nos motores de busca dos navegadores.
+
+Desenvolvi esta aplicação react com functional components utilizando alguns reacts hooks como useState e useEffects.
+
+Optei por utilizar a contextApi do react criando um próprio hook "useTools", no lugar do SSG(static site generation) visto que a aplicação se trata de um "dashboard" e tem seus dados alterados frequentemente.
+
+Sobre o a estilização não vi necessidade de utilizar styled-components, visto que não tinha alterações de estilo que precisassem ser alteradas com JasvaScript ou utilização de temas, assim o css.modules com sass do next supriu todas minhas necessidades.
+
+Algumus components como icons, modais, switch e tags-inputs optei por utilizar biblioteca de terceiros para poupar tempo e focar em mais funcionalidades, os components foram instalados via npm e modificação de estilos para ficar de acordo com o style guide do projeto.
+
+Toda a aplicação foi feita com typescript seguindo o wireframe e style guide fornecido.
+
+#### components
+- **useTools**
+    O hook useTols utiliza a context api do react para fazer todas as requisições necessárias a api e distribuir a resposta por todos os outros componentes.
+- **Header**
+    O componente Header renderiza o caberçalho da aplicação com titulo e subtítulo.
+- **Controllers**
+    O component Controlles é responsável pelos input de busca, checkbox de tags e botão de nova tag.
+- **ToolsList**
+    Responsável por renderizar todos os tools recibidos das requisições da contextApi
+
+- **modalAddNewTool**
+    Modal com formulário pra adicionar nova tool
+- **modalRemovToolConfirm**
+    Modal com confirmação para remover tool.
+
+#### pages
+
+- **_app**
+    Escopo principal da aplicação que renderiza todas as paginas.
+- **_Document**
+    Configuração de documento html gerado pelo next
+- **index**
+    Página principal onde é gerada a lista de tools.
+
+#### Conteinerização da aplicação
+Ao final do projeto foi criado um arquivo dockerfile para criação de imagem e inicialização do container da aplicação.
+
+***
+## Funcionalidades
+- [x] Listagem de todas as ferramentas cadastrads;
+- [x] Adicionar uma nova ferramenta;
+- [x] Remover uma ferramenta;
+- [x] Busca de ferramentas dinanmicamente;
+
+***
+
+
+## Como funciona
+
+## Pré-requisitos
 ```bash
-npm run dev
-# or
-yarn dev
+#inicialize a api do progeto acesse:
+https://gitlab.com/bossabox/challenge-fake-api/tree/master
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Iniciando a aplicação
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+```bash
+# Clone este repositório
+$ git clone git@github.com:git@github.com:Matheusouz1/VUTTR-Very-Useful-Tools-to-Remember-
 
-To learn more about Next.js, take a look at the following resources:
+# Acesse a pasta do projeto no seu terminal
+$ cd VUTTR-Very-Useful-Tools-to-Remember-
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Instale as dependências
+$ npm install or yarn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Inicialize a aplicação no modo de desenvolvimento
+$ npm run dev or yarn dev
 
-## Deploy on Vercel
+# acesse seu aplicação pelo endereço : 
+# 3000 - go to http://localhost:3000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Dockerizando sua Aplicação
+
+```bash
+    #construir a imagem Docker
+    docker build -t [imageName] .
+
+    #executar container e vincular uma porta do seu container ao seu ambiente local
+
+    docker build -t [imageName] . && docker run --name [containerName] -p 0.0.0.0:5000:3000 [imageName]
+```
+
+***
+
+## Tecnologia utilizadas
+
+The following tools were used in the construction of the project:
+
+-   **[TypeScript](https://www.typescriptlang.org/)**
+-   **[ReactJs](https://reactjs.org)**
+-   **[NextJs](https://nextjs.org)**
+-   **[React-modal](https://www.npmjs.com/package/react-modal)**
+-   **[React-switch](https://www.npmjs.com/package/react-switch)**
+
+-   **[React-icons](https://www.npmjs.com/package/react-icons)**
+-   **[React-tags-input](https://www.npmjs.com/package/react-tag-input)**
+
+-   **[Axios](https://github.com/axios/axios)**
+-   **[Sass](https://sass-lang.com/)**
+
+
+> See the file  [package.json](https://github.com/Matheusouz1/VUTTR-Very-Useful-Tools-to-Remember-/blob/main/package.json)
+
+#### [](https://github.com/Matheusouz1/FinApp#utilit%C3%A1rios)**Utilitários**
+
+
+-   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**  
+-   Fonts:  **[Ubuntu](https://fonts.google.com/specimen/Ubuntu)**,  **[Source sans pro](https://fonts.google.com/specimen/Source-sans-pro)**
+
+***
+
+## Author
+
+<a href="https://www.linkedin.com/in/matheus-souza-santos-392677195/"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/57780476?s=460&u=7567cd1574afedb331cd18441e6b49e39ac8b059&v=4" width="100px;" alt=""/><br /><sub><b>Matheus Santos</b></sub></a><br /><a href="https://www.linkedin.com/in/matheus-souza-santos-392677195/" title="Matheus Santos"></a>
+
+***
