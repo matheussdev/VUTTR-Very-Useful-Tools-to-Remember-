@@ -3,6 +3,19 @@
 }
 .content {
   li {
+
+    &.notFound{
+      padding: 3rem;
+      text-align: center;
+      svg{
+        font-size: 3rem;
+        color: var(--ink);
+      }
+
+      h4{
+        font-size: 2rem;
+      }
+    }
     & + li {
       margin-top: 1rem;
     }

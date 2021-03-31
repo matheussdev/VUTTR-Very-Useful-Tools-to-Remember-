@@ -4,34 +4,29 @@ import Modal from "react-modal";
 import { GoX } from "react-icons/go";
 
 import style from "./style.module.scss";
+import { useTools } from "../../hooks/useTools";
 
 interface RemoveToolConfirmModalProps {
   isOpen: boolean;
+  toolId: number;
+  toolName: string;
   onRequestClose: () => void;
 }
 
 export function RemoveToolConfirmModal({
   isOpen,
+  toolName,
+  toolId,
   onRequestClose,
 }: RemoveToolConfirmModalProps) {
-  const [isConfirm, setIsConfirm] = useState(false);
+  const { removeTool } = useTools();
 
-  //   async function handleCreateNewTrasaction(event: FormEvent) {
-  //     event.preventDefault();
-  //     // await createTransaction({
-  //     //   title,
-  //     //   amount,
-  //     //   category,
-  //     //   userID: localStorage.getItem("user") || "",
-  //     //   type,
-  //     // });
+  async function handleRemoveTool(id: number) {
+    event.preventDefault();
 
-  //     setTitle("");
-  //     setAmount(0);
-  //     setCategory("");
-  //     setType("deposit");
-  //     onRequestClose();
-  //   }
+    removeTool(id);
+    onRequestClose()
+  }
 
   return (
     <Modal
@@ -40,17 +35,27 @@ export function RemoveToolConfirmModal({
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
     >
-      <form className={style.container}>
+      <form className={style.container} onSubmit={() => handleRemoveTool(toolId)}>
         <div>
           <GoX />
           <h2>Remove tool</h2>
         </div>
-        <p>Are you sure you want to remove <strong>hotel</strong>?</p>
+        <p>
+          Are you sure you want to remove <strong>{toolName}</strong>?
+        </p>
         <div>
-          <button type="button" onClick={onRequestClose} className={style.cancel}>
+          <button
+            type="button"
+            onClick={onRequestClose}
+            className={style.cancel}
+          >
             cancel
           </button>
-          <button type="submit" className={style.confirm}>
+          <button
+            type="submit"
+            className={style.confirm}
+            
+          >
             Yes, remove
           </button>
         </div>

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useState } from "react";
 import { Controllers } from "../components/Controllers";
 import { NewToolModal } from "../components/NewToolModal";
@@ -6,26 +7,38 @@ import { ToolsList } from "../components/ToolsList";
 
 export default function Home() {
   const [isNewToolModalOpen, setIsNewToolModalOpen] = useState(false);
-  const [isRemoveToolConfirmModalOpen, setIsRemoveToolConfirmModalOpen] = useState(false);
-
+  const [
+    isRemoveToolConfirmModalOpen,
+    setIsRemoveToolConfirmModalOpen,
+  ] = useState(false);
+  const [toolRemoveId, setToolRemoveId] = useState<number>();
+  const [toolRemoveName, setToolRemoveName] = useState("");
 
   function handleOpenNewToolModal() {
     setIsNewToolModalOpen(true);
   }
 
-  function handleOpenRemoveToolConfirmModal() {
+  function handleOpenRemoveToolConfirmModal(toolId: number, toolName: string) {
     setIsRemoveToolConfirmModalOpen(true);
+    setToolRemoveId(toolId);
+    setToolRemoveName(toolName);
   }
 
   function handleCloseModal() {
     setIsNewToolModalOpen(false);
-    setIsRemoveToolConfirmModalOpen(false)
+    setIsRemoveToolConfirmModalOpen(false);
   }
 
   return (
     <>
+      <Head>
+        <title>VUTTR | Very Userful Tools Remember</title>
+      </Head>
+
       <Controllers onOpenNewToolModal={handleOpenNewToolModal} />
-      <ToolsList onOpenRemoveToolConfirmModal={handleOpenRemoveToolConfirmModal}/>
+      <ToolsList
+        onOpenRemoveToolConfirmModal={handleOpenRemoveToolConfirmModal}
+      />
       <NewToolModal
         isOpen={isNewToolModalOpen}
         onRequestClose={handleCloseModal}
@@ -33,6 +46,8 @@ export default function Home() {
       <RemoveToolConfirmModal
         isOpen={isRemoveToolConfirmModalOpen}
         onRequestClose={handleCloseModal}
+        toolName={toolRemoveName}
+        toolId={toolRemoveId}
       />
     </>
   );

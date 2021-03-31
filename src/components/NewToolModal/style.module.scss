@@ -1,67 +1,138 @@
-.container{
+.container {
+  display: flex;
+  flex-direction: column;
+
+  > div:first-child {
     display: flex;
-    flex-direction: column;
-    >div:first-child{
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
+    align-items: center;
 
-        font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 
-        svg{
-            margin: 0 1rem 0 0.5rem;
-        }
+    svg {
+      margin: 0 1rem 0 0.5rem;
     }
+  }
 
-    label{
-        margin: 1rem 2rem 0.5rem;
-        font-weight: 600;
+  label {
+    margin: 1rem 2rem 0.5rem;
+    font-weight: 600;
+  }
+  > input {
+    margin: 0 2rem;
+    height: 2rem;
+    padding: 1rem;
+
+    background: var(--darker-white);
+
+    border: 1px solid var(--darkest-white);
+    border-radius: 0.25rem;
+  }
+  textarea {
+    resize: none;
+
+    margin: 0 2rem;
+    padding: 0.5rem 1rem;
+
+    background: var(--darker-white);
+    border: 1px solid var(--darkest-white);
+    border-radius: 0.25rem;
+  }
+
+  > button {
+    align-self: flex-end;
+
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+
+    height: 2rem;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    background: var(--blue);
+    color: var(--white);
+
+    font-weight: 600;
+
+    transition: background 0.2s;
+    &:hover {
+      background: var(--dark-blue);
     }
-    input{
-        margin: 0 2rem;
-        height: 2rem;
-        background: var(--darker-white);
-        
+  }
+}
 
-        border: 1px solid var(--darkest-white);
-        border-radius: 0.25rem;
+.containerTags {
+  margin: 0 2rem;
+  padding: 0.5rem 1rem;
 
-        padding: 1rem;
+  background: var(--darker-white);
+  border: 1px solid var(--darkest-white);
+  border-radius: 0.25rem;
+
+  max-height: 8rem;
+  overflow-y: auto;
+  .tagsClass {
+    display: flex;
+    width: 100%;
+    > div {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
     }
-    textarea{
-        resize: none;
-        margin: 0 2rem;
-        background: var(--darker-white);
-        
+  }
 
-        border: 1px solid var(--darkest-white);
-        border-radius: 0.25rem;
-        padding: 0.5rem 1rem;
+  .tagInputClass {
+    background: var(--white);
+    width: fit-content;
+    height: fit-content;
+    margin-left: 0.5rem;
+  }
+  .tagInputFieldClass {
+    background: var(--white);
 
+    border: 1px solid var(--darkest-white);
+    border-radius: 0.25rem;
     
+    padding: 0.25rem 0.5rem;
+  }
+  .tagClass {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background: var(--white);
+    margin-bottom: 0.5rem;
+
+    border-radius: 0.25rem;
+
+    margin-right: 0.5rem;
+  }
+  .removeClass {
+    border: none;
+    background: none;
+    margin-left: 0.5rem;
+    color: var(--light-ink);
+
+    padding: 0 0.25rem;
+  }
+
+  .suggestionsClass{
+    background: var(--white);
+    width: 100%;
+    ul{
+      margin-top: 0.25rem;
+      li{
+        list-style: none;
+        padding: 0.5rem;
+      }
     }
+  }
+  .activeSuggestionClass{
+    background: var(--darkest-white);
+  }
 
-    button{
-        align-self: flex-end;
-        margin-right: 2rem;
-        margin-top: 2rem;
-
-        padding: 0 1rem;
-
-        height: 2rem;
-
-        border: none;
-        border-radius: 0.25rem;
-        background: var(--blue);
-
-        color:var(--white);
-
-        font-weight: 600;
-
-
-        transition: background 0.2s;
-        &:hover{
-            background: var(--dark-blue);
-        }
-    }
+  // selected: style,
+  // suggestions: style.suggestionsClass,
+  // activeSuggestion: style.activeSuggestionClass,
 }
