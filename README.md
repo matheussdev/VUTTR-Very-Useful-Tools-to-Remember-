@@ -89,7 +89,7 @@ $ npm install or yarn
 $ npm run dev or yarn dev
 
 # acesse seu aplicação pelo endereço : 
-# 3000 - go to http://localhost:3000
+# 8080 - go to http://localhost:8080
 
 ```
 
